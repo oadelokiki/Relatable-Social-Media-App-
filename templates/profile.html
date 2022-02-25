@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    General
+{% endblock %}
+
+{% block main %}
+    {% if method == "POST" %}
+        {% for x in range(0, rightrange) %}
+            <div class="form-group col-12">
+                <span>
+
+
+                </span>
+            </div>
+
+
+            <div class="modal-content">
+        <span class="nav navbar-brand col-12" style="background-color: red; color: white">
+
+          <a class="nav-link" href="#"><button class="btn btn-primary" name = "postbtn" id="postbtn" onclick="post();">{{postlist[x]["user_id"]}}</button></a>
+
+
+         </span>
+
+
+            <img class="col-12" src= {{url_for('display_image', filename =  postlist[x]['photolocation'])}}>
+
+
+<span class="nav navbar-brand col-12" style="background-color: red; color: white">
+            <p></p>{{postlist[x]["text"]}}</p>
+            <p>{{postlist[x]["date_and_time"]}}
+            </p>
+            </span>
+        </span>
+        <form enctype="multipart/form-data" id="postform" class="col-12 text-center" action='/profile' method="POST">
+
+
+
+
+
+        </form>
+      </div>
+      <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form enctype="multipart/form-data" id="addform" class="col-12 text-center" action='/add' method="POST">
+        <div class="form-group">
+            <input id="destination" name="destination" type="text" placeholder={{postlist[x]["user_id"]}}>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary form-control col-12 text-center" value="Add">
+        </div>
+
+
+
+
+
+
+         <label for="channel">Channel:</label>
+
+        <div class="form-group">
+            <select name="channel" class="form-controlcol-12 text-center" id="channel">
+          <option value="general">General</option>
+          <option value="friends">Friends</option>
+          <option value="family">Family</option>
+
+        </select>
+        </div>
+
+
+
+    </form>
+  </div>
+
+</div>
+        {% endfor %}
+
+
+
+    {% elif method == "GET" %}
+
+    <form action="/profile" method="post">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="username" placeholder="find user" type="text">
+            </div>
+
+            <button class="btn btn-primary" type="submit">Load Profile</button>
+    </form>
+
+<!-- The Modal -->
+
+    {% endif %}
+
+
+
+<script src="./static/modal.js"></script>
+
+{% endblock %}
+
+
+
+
+

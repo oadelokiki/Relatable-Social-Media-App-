@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    C$50 Finance: Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="POST">
+
+        <div class='form-group'>
+            <input class="form-control" placeholder='Username' autocomplete='off' type="text" name="username" id="username">
+        </div>
+
+        <div class='form-group'>
+            <input class="form-control" placeholder="Password" autocomplete="off" type="password" name="password" id="password">
+        </div>
+        <div class='form-group'>
+            <input class="form-control" placeholder="Type your password again" autocomplete="off" type="password" name="confirmation" id="confirmation">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+{% endblock %}

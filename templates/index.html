@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    General
+{% endblock %}
+
+{% block main %}
+
+    {% for x in range(0, rightrange) %}
+        <div class="form-group col-12">
+            <span>
+
+
+            </span>
+        </div>
+
+
+        <div class="modal-content">
+    <span class="nav navbar-brand col-12" style="background-color: red; color: white">User: {{postlist[x]["user_id"]}}
+        <p >{{postlist[x]["text"]}}</p>
+                <p >{{postlist[x]["date_and_time"]}}
+                </p>
+        <div class="form-group col-12">
+            <img class="col-12" src= {{url_for('display_image', filename =    postlist[x]['photolocation'])}}>
+
+        </div>
+    </span>
+    <form enctype="multipart/form-data" id="postform" class="col-12 text-center" action='/' method="POST">
+
+
+
+
+
+    </form>
+  </div>
+    {% endfor %}
+{% endblock %}
+
+
